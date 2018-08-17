@@ -1,0 +1,79 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Register";
+}
+<br />
+<div align="center">
+    <h2>Be part of the community</h2>
+</div>
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
+            <div align="center"><h5>Create a new account now!</h5></div>
+            <hr />
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Input.Name"></label>
+                <input asp-for="Input.Name" class="form-control" />
+                <span asp-validation-for="Input.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.Lastname"></label>
+                <input asp-for="Input.Lastname" class="form-control" />
+                <span asp-validation-for="Input.Lastname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.Birthdate"></label>
+                <input type="date" asp-for="Input.Birthdate" class="form-control" />
+                <span asp-validation-for="Input.Birthdate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                @{
+                    DateTime date = DateTime.Now;
+                    var day = date.Day;
+                    var month = date.Month;
+                    var year = date.Year;
+                    var hour = date.Hour;
+                    var minute = date.Minute;
+                    var second = date.Second;
+                    DateTime todayDate = new DateTime(year, month, day, hour, minute, second);
+                    string result = todayDate.ToString("yyyy-MM-dd");
+                }
+                <label asp-for="Input.RegisteredDate"></label>
+                <input type="date" asp-for="Input.RegisteredDate" class="form-control" value="@result" readonly />
+                <span asp-validation-for="Input.RegisteredDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.Sex"></label>
+                <select asp-for="Input.Sex" class="form-control">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+                <span asp-validation-for="Input.Sex" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.Email"></label>
+                <input asp-for="Input.Email" class="form-control" />
+                <span asp-validation-for="Input.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.Password"></label>
+                <input asp-for="Input.Password" class="form-control" />
+                <span asp-validation-for="Input.Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.ConfirmPassword"></label>
+                <input asp-for="Input.ConfirmPassword" class="form-control" />
+                <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Register</button>
+        </form>
+    </div>
+    <div class="col-md-4"></div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

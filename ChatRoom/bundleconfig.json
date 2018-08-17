@@ -1,0 +1,40 @@
+[
+  {
+    "outputFileName": "wwwroot/css/bootstrap.css",
+    "inputFiles": [
+      "node_modules/bootstrap/dist/css/bootstrap.css"
+    ],
+    "minify": {
+      "enabled": true
+    }
+  },
+  {
+    "outputFileName": "wwwroot/js/bootstrap.js",
+    "inputFiles": [
+      "node_modules/bootstrap/dist/js/bootstrap.js"
+    ],
+    "minify": { "enabled": true }
+  },
+  {
+    "outputFileName": "wwwroot/js/jquery.js",
+    "inputFiles": [
+      "node_modules/jquery/dist/jquery.js"
+    ],
+    "minify": {"enabled": true}
+  },
+  {
+    "outputFileName": "wwwroot/js/popperjs.js",
+    "inputFiles": [
+      "node_modules/popper.js/dist/umd/popper.min.js"
+    ],
+    "minify": { "enabled": true }
+  },
+  {
+    "outputFileName": "wwwroot/js/fontawesome.js",
+    "inputFiles": [
+      "node_modules/fontawesome/generate.js",
+      "node_modules/fontawesome/index.js"
+    ],
+    "minify": {"enabled": true}
+  }
+]
